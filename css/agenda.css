@@ -6,6 +6,7 @@ html {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
   color: #333;
+  overflow-x: hidden; /* Previne rolagem horizontal */
 }
 
 /* Cabeçalho */
@@ -20,7 +21,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 20px;
   z-index: 1000;
   box-sizing: border-box;
 }
@@ -29,10 +30,13 @@ header h1 {
   font-size: 20px;
   margin: 0;
 }
+
 nav {
   display: flex;
-  gap: 30px;
+  gap: 15px;
+  align-items: center;
 }
+
 nav span:hover {
   cursor: pointer;
 }
@@ -42,7 +46,7 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 30px;
+  gap: 15px;
 }
 
 nav ul li a {
@@ -50,6 +54,7 @@ nav ul li a {
   color: #fff;
   font-weight: 500;
   transition: 0.3s;
+  font-size: 14px;
 }
 
 nav ul li a:hover {
@@ -62,7 +67,7 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 120px 80px 60px 80px; /* espaço para não ficar atrás do header */
+  padding: 100px 20px 60px;
   background: #fff;
   box-sizing: border-box;
 }
@@ -70,6 +75,7 @@ nav ul li a:hover {
 #agendamento h2 {
   font-size: 28px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 #agendamento hr {
@@ -77,7 +83,7 @@ nav ul li a:hover {
   height: 3px;
   background: #d35400;
   border: none;
-  margin: 20px 0 40px 0;
+  margin: 20px auto 40px;
 }
 
 /* Formulário (sem card) */
@@ -86,6 +92,8 @@ form {
   flex-direction: column;
   gap: 20px;
   max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 form div {
@@ -108,6 +116,7 @@ textarea {
   outline: none;
   background: #fdfdfd;
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
 input:focus,
@@ -146,6 +155,7 @@ textarea {
   background-color: #4caf50;
   color: #fff;
 }
+
 .horarios button.livre:hover {
   background-color: #45a049;
   transform: scale(1.05);
@@ -166,20 +176,8 @@ textarea {
   box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
 }
 
-/* Responsivo: menos colunas em telas menores */
-@media (max-width: 800px) {
-  .horarios {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (max-width: 500px) {
-  .horarios {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Botão */
-button {
+/* Botão de agendamento */
+button[type="submit"] {
   background: #e67e22;
   color: #fff;
   border: none;
@@ -188,15 +186,18 @@ button {
   cursor: pointer;
   transition: background 0.3s;
   width: fit-content;
+  border-radius: 4px;
+  margin: 20px auto 0;
+  display: block;
 }
 
-button:hover {
+button[type="submit"]:hover {
   background: #d35400;
 }
 
 /* Seção Consultas */
 #consultas {
-  padding: 60px 80px;
+  padding: 60px 20px;
   background: #f9f9f9;
   box-sizing: border-box;
 }
@@ -204,6 +205,7 @@ button:hover {
 #consultas h2 {
   font-size: 26px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 #consultas hr {
@@ -211,13 +213,15 @@ button:hover {
   height: 3px;
   background: #d35400;
   border: none;
-  margin: 20px 0 30px 0;
+  margin: 20px auto 30px;
 }
 
 .consultas-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .consulta-card {
@@ -231,20 +235,22 @@ button:hover {
 /* Footer */
 footer {
   background: #f9f9f9;
-  padding: 30px 60px;
+  padding: 30px 20px;
   border-top: 1px solid #ddd;
   box-sizing: border-box;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-left {
-  max-width: 400px;
+  max-width: 100%;
+  text-align: center;
 }
 
 .footer-left h3 {
@@ -255,11 +261,14 @@ footer {
   margin: 0 0 10px;
   font-size: 14px;
   color: #444;
+  line-height: 1.5;
 }
 
 .footer-left small {
   font-size: 12px;
   color: #777;
+  display: block;
+  margin-top: 10px;
 }
 
 .footer-right ul {
@@ -267,7 +276,9 @@ footer {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 .footer-right ul li a {
@@ -279,4 +290,180 @@ footer {
 
 .footer-right ul li a:hover {
   color: #d35400;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  header {
+    padding: 0 15px;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav ul li a {
+    font-size: 13px;
+  }
+
+  #agendamento {
+    padding: 100px 15px 50px;
+  }
+
+  #agendamento h2 {
+    font-size: 24px;
+  }
+
+  .horarios {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .horarios button {
+    width: 85px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  #consultas {
+    padding: 50px 15px;
+  }
+
+  #consultas h2 {
+    font-size: 24px;
+  }
+
+  footer {
+    padding: 25px 15px;
+  }
+}
+
+/* Mobile Pequeno */
+@media (max-width: 480px) {
+  header {
+    height: 60px;
+    padding: 0 10px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 12px;
+  }
+
+  #agendamento {
+    padding: 90px 10px 40px;
+  }
+
+  #agendamento h2 {
+    font-size: 22px;
+  }
+
+  form {
+    gap: 15px;
+  }
+
+  input,
+  textarea {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .horarios {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .horarios button {
+    width: 80px;
+    height: 38px;
+    font-size: 13px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  #consultas {
+    padding: 40px 10px;
+  }
+
+  #consultas h2 {
+    font-size: 22px;
+  }
+
+  .consulta-card {
+    padding: 12px;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+
+  .footer-right ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  #agendamento {
+    padding: 100px 40px 60px;
+  }
+
+  #consultas {
+    padding: 60px 40px;
+  }
+
+  footer {
+    padding: 30px 40px;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-left {
+    text-align: left;
+    max-width: 50%;
+  }
+
+  .footer-right ul {
+    justify-content: flex-end;
+  }
+}
+
+/* Ajuste para telas muito grandes */
+@media (min-width: 1200px) {
+  #agendamento,
+  #consultas {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Ajuste para orientação paisagem em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  #agendamento {
+    padding-top: 90px;
+    min-height: auto;
+  }
 }

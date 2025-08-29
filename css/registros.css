@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Corrige largura estourada */
+  box-sizing: border-box;
 }
 
 body,
@@ -10,11 +10,12 @@ html {
   font-family: Arial, sans-serif;
   background: #f9f9f9;
   color: #333;
+  overflow-x: hidden; /* Previne rolagem horizontal */
 }
 
 /* Cabeçalho fixo */
 header {
-  position: fixed; /* fixa no topo */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -24,18 +25,21 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
-  z-index: 1000; /* garante que fique por cima */
+  padding: 0 20px;
+  z-index: 1000;
 }
 
 header h1 {
   font-size: 20px;
   margin: 0;
 }
+
 nav {
   display: flex;
-  gap: 30px;
+  gap: 15px;
+  align-items: center;
 }
+
 nav span:hover {
   cursor: pointer;
 }
@@ -43,7 +47,7 @@ nav span:hover {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 15px;
 }
 
 nav ul li a {
@@ -51,6 +55,7 @@ nav ul li a {
   color: #fff;
   font-weight: 500;
   transition: 0.3s;
+  font-size: 14px;
 }
 
 nav ul li a:hover {
@@ -63,13 +68,14 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 80px 80px 80px; /* espaço no topo p/ não ficar atrás do header */
+  padding: 100px 20px 60px;
   background: #fff;
 }
 
 #relatorio h2 {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 #relatorio hr {
@@ -77,14 +83,16 @@ nav ul li a:hover {
   height: 3px;
   background: #d35400;
   border: none;
-  margin: 20px 0 40px 0;
+  margin: 20px auto 40px;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
   max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 label {
@@ -101,6 +109,7 @@ textarea {
   border: 1px solid #ccc;
   outline: none;
   background: #fdfdfd;
+  border-radius: 4px;
 }
 
 input:focus,
@@ -122,22 +131,25 @@ button {
   cursor: pointer;
   transition: background 0.3s;
   width: fit-content;
+  border-radius: 4px;
+  margin: 0 auto;
 }
 
 button:hover {
   background: #d35400;
 }
 
-/* Seção relatorio */
+/* Seção registro */
 #registro {
-  padding: 60px 80px;
+  padding: 60px 20px;
   background: #f9f9f9;
   box-sizing: border-box;
 }
 
 #registro h2 {
-  font-size: 26px;
+  font-size: 24px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 #registro hr {
@@ -145,13 +157,15 @@ button:hover {
   height: 3px;
   background: #d35400;
   border: none;
-  margin: 20px 0 30px 0;
+  margin: 20px auto 30px;
 }
 
 .registro-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .registro-card {
@@ -162,12 +176,10 @@ button:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Adiciona espaçamento entre os elementos filhos do registro-card */
 .registro-card > * {
-  margin-bottom: 10px; /* Espaçamento de 10px entre cada elemento filho */
+  margin-bottom: 10px;
 }
 
-/* Remove a margem inferior do último elemento para evitar espaço extra */
 .registro-card > *:last-child {
   margin-bottom: 0;
 }
@@ -175,19 +187,21 @@ button:hover {
 /* Footer */
 footer {
   background: #f9f9f9;
-  padding: 30px 60px;
+  padding: 30px 20px;
   border-top: 1px solid #ddd;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-left {
-  max-width: 400px;
+  max-width: 100%;
+  text-align: center;
 }
 
 .footer-left h3 {
@@ -198,17 +212,23 @@ footer {
   margin: 0 0 10px;
   font-size: 14px;
   color: #444;
+  line-height: 1.5;
 }
 
 .footer-left small {
   font-size: 12px;
   color: #777;
+  display: block;
+  margin-top: 15px;
 }
 
 .footer-right ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 0;
 }
 
 .footer-right ul li a {
@@ -220,4 +240,142 @@ footer {
 
 .footer-right ul li a:hover {
   color: #d35400;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets */
+@media (min-width: 768px) {
+  header {
+    padding: 0 30px;
+  }
+
+  nav {
+    gap: 25px;
+  }
+
+  nav ul {
+    gap: 25px;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+
+  #relatorio {
+    padding: 100px 40px 60px;
+  }
+
+  #registro {
+    padding: 60px 40px;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-left {
+    text-align: left;
+    max-width: 50%;
+  }
+
+  .footer-right ul {
+    justify-content: flex-end;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  header {
+    padding: 0 40px;
+  }
+
+  #relatorio {
+    padding: 100px 80px 60px;
+  }
+
+  #registro {
+    padding: 60px 80px;
+  }
+
+  footer {
+    padding: 30px 40px;
+  }
+}
+
+/* Telas muito pequenas (mobile pequeno) */
+@media (max-width: 480px) {
+  header {
+    height: 60px;
+    padding: 0 15px;
+    flex-wrap: wrap;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 12px;
+  }
+
+  #relatorio {
+    padding: 80px 15px 40px;
+  }
+
+  #relatorio h2 {
+    font-size: 22px;
+  }
+
+  form {
+    gap: 15px;
+  }
+
+  input,
+  textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  #registro {
+    padding: 40px 15px;
+  }
+
+  #registro h2 {
+    font-size: 22px;
+  }
+
+  .registro-card {
+    padding: 12px;
+  }
+
+  footer {
+    padding: 20px 15px;
+  }
+
+  .footer-right ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Ajuste para orientação paisagem em mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  #relatorio {
+    padding-top: 80px;
+    min-height: auto;
+  }
 }
