@@ -1,0 +1,223 @@
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Corrige largura estourada */
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Cabeçalho fixo */
+header {
+  position: fixed; /* fixa no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000; /* garante que fique por cima */
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+nav {
+  display: flex;
+  gap: 30px;
+}
+nav span:hover {
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #f4b400;
+}
+
+/* Área do relatório */
+#relatorio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 80px 80px 80px; /* espaço no topo p/ não ficar atrás do header */
+  background: #fff;
+}
+
+#relatorio h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+#relatorio hr {
+  width: 60px;
+  height: 3px;
+  background: #d35400;
+  border: none;
+  margin: 20px 0 40px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 700px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fdfdfd;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #d35400;
+}
+
+textarea {
+  resize: none;
+  min-height: 150px;
+}
+
+button {
+  background: #e67e22;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: fit-content;
+}
+
+button:hover {
+  background: #d35400;
+}
+
+/* Seção relatorio */
+#registro {
+  padding: 60px 80px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+}
+
+#registro h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#registro hr {
+  width: 60px;
+  height: 3px;
+  background: #d35400;
+  border: none;
+  margin: 20px 0 30px 0;
+}
+
+.registro-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.registro-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adiciona espaçamento entre os elementos filhos do registro-card */
+.registro-card > * {
+  margin-bottom: 10px; /* Espaçamento de 10px entre cada elemento filho */
+}
+
+/* Remove a margem inferior do último elemento para evitar espaço extra */
+.registro-card > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+  background: #f9f9f9;
+  padding: 30px 60px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  max-width: 400px;
+}
+
+.footer-left h3 {
+  margin: 0 0 10px;
+}
+
+.footer-left p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+.footer-left small {
+  font-size: 12px;
+  color: #777;
+}
+
+.footer-right ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-right ul li a:hover {
+  color: #d35400;
+}

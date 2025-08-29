@@ -1,0 +1,282 @@
+/* Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Cabeçalho */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+nav {
+  display: flex;
+  gap: 30px;
+}
+nav span:hover {
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #f4b400;
+}
+
+/* Seção Agendamento */
+#agendamento {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 120px 80px 60px 80px; /* espaço para não ficar atrás do header */
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#agendamento h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+#agendamento hr {
+  width: 60px;
+  height: 3px;
+  background: #d35400;
+  border: none;
+  margin: 20px 0 40px 0;
+}
+
+/* Formulário (sem card) */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fdfdfd;
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #d35400;
+}
+
+textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.horarios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-items: center;
+  margin: 20px 0;
+}
+
+/* Botões de horário */
+.horarios button {
+  width: 90px;
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Horário livre */
+.horarios button.livre {
+  background-color: #4caf50;
+  color: #fff;
+}
+.horarios button.livre:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Horário ocupado */
+.horarios button.ocupado {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Selecionado */
+.horarios button.selecionado {
+  background-color: #2196f3;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+}
+
+/* Responsivo: menos colunas em telas menores */
+@media (max-width: 800px) {
+  .horarios {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .horarios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Botão */
+button {
+  background: #e67e22;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: fit-content;
+}
+
+button:hover {
+  background: #d35400;
+}
+
+/* Seção Consultas */
+#consultas {
+  padding: 60px 80px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+}
+
+#consultas h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#consultas hr {
+  width: 60px;
+  height: 3px;
+  background: #d35400;
+  border: none;
+  margin: 20px 0 30px 0;
+}
+
+.consultas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.consulta-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  background: #f9f9f9;
+  padding: 30px 60px;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  max-width: 400px;
+}
+
+.footer-left h3 {
+  margin: 0 0 10px;
+}
+
+.footer-left p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+.footer-left small {
+  font-size: 12px;
+  color: #777;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-right ul li a:hover {
+  color: #d35400;
+}
